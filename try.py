@@ -3,10 +3,15 @@ import pandas as pd
 
 # Step 1: Make the request
 url = "https://sanctum-extra-api.ngrok.dev/v1/infinity/allocation/current"
+
+
+url = "https://sanctum-extra-api.ngrok.dev/v1/apy/inception?lst=INF&lst=pwrsol&lst=laineSOL&lst=mSoLzYCxHdYgdzU16g5QSh3i5K3z3KZK7ytfqcJm7So" 
+
+url = "https://sanctum-extra-api.ngrok.dev/v1/apy/latest?lst=INF&lst=pwrsol&lst=laineSOL&lst=mSoLzYCxHdYgdzU16g5QSh3i5K3z3KZK7ytfqcJm7So" 
+
 headers = {
     "accept": "application/json"
 }
-
 response = requests.get(url, headers=headers)
 data = response.json()  # Assuming the response is JSON
 # print(data) prints data in json format
