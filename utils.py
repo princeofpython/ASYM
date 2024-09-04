@@ -128,3 +128,35 @@ def getTVL(LSTs):
 
     return df
 
+"""
+Get a SOL value for LSTs
+"""
+
+def getLSTPrice(LSTs):
+    url = "https://sanctum-s-api.fly.dev/v1/price?"
+    for lst in LSTs:
+        url += "input=" + allLSTs[lst] + '&'
+    headers = {
+        "accept": "application/json"
+    }
+    response = requests.get(url, headers=headers)
+    data = response.json()  # Assuming the response is JSON
+
+    df = pd.DataFrame(data['prices']).drop('mint', axis = 1)
+    df.index = LSTs
+    return df
+
+
+def getSwapQuote(inLST, outLST, amount, bExactOut):
+    url = "https://sanctum-s-api.fly.dev/v1/swap/quote?"
+    url += "input=" + allLSTs[inLST]
+    url += "&outputLstMint=" + allLSTs[outLST]
+    url += "&amount=" + str(amount)
+    url += "&mode=" + ("ExactOut" if bExactOut else "ExactIn")
+    headers = {
+        "accept": "application/json"
+    }
+    response = requests.get(url, headers=headers)
+    data = response.json()  # Assuming the response is JSON
+
+    return data
