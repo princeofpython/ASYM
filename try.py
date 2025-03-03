@@ -1,13 +1,14 @@
 import requests
 import pandas as pd
-
+from allLSTs import allLSTs
+import utils
 # Step 1: Make the request
 url = "https://sanctum-extra-api.ngrok.dev/v1/infinity/allocation/current"
 
 
 url = "https://sanctum-extra-api.ngrok.dev/v1/apy/inception?lst=INF&lst=pwrsol&lst=laineSOL&lst=mSoLzYCxHdYgdzU16g5QSh3i5K3z3KZK7ytfqcJm7So" 
 
-url = "https://sanctum-extra-api.ngrok.dev/v1/apy/latest?lst=INF&lst=pwrsol&lst=laineSOL&lst=mSoLzYCxHdYgdzU16g5QSh3i5K3z3KZK7ytfqcJm7So" 
+url = "https://sanctum-s-api.fly.dev/v1/price?input=bSo13r4TkiE4KumL71LsHTPpL2euBYLFx6h9HP3piy1"
 
 headers = {
     "accept": "application/json"
@@ -29,3 +30,5 @@ pd.set_option('display.max_columns', None)   # Display all columns
 # Step 3: Display the DataFrame
 #print(df.iloc[0])
 print(df)
+print(allLSTs['bSOL'])
+print(utils.getSolValue(['bSOL']))

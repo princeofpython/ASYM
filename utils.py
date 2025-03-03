@@ -187,6 +187,7 @@ def getTruePriceQuote(inLST, outLST, amount, bExactOut):
 
 
 def getSwapLoss(inLST, outLST, amount, bExactOut):
+    print("outAmount: ", getSwapQuote(inLST, outLST, int(amount), bExactOut)['outAmount'])
     print("capital loss in percentage: ", 100 -  float(getSwapQuote(inLST, outLST, int(amount), bExactOut)['outAmount']) * 100 / getTruePriceQuote(inLST, outLST, int(amount), bExactOut) )
     apy_df = getLatestAPY([inLST, outLST])
     #print(apy_df)
@@ -194,4 +195,5 @@ def getSwapLoss(inLST, outLST, amount, bExactOut):
     print("APY gain: ", APYgain)
     print("APY gain per epoch: ", APYgain / 365 * 2)
 
-getSwapLoss('hSOL', 'eonSOL', 1e9, False)   
+#print(getSwapQuote('hSOL', 'eonSOL', int(8662499562), False))
+getSwapLoss('hubSOL', 'rkSOL', int(10623339301), False)
