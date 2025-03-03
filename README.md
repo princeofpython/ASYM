@@ -3,7 +3,7 @@ Python implementation of all important APIs of sanctum. (in `utils.py`)
 
 
 
-## Automatic Solana staking yield maximization (Sanctum)
+## Automatic Solana staking yield maximization (ASYM)
 Use `utils.py` to get your captial loss by swap via sanctum router. Also the APY increase, increase per epoch, and you can calculate the breakeven epochs.
 View this [article](https://74944.substack.com/p/automatic-staking-yield-maximizing).
 
